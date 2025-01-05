@@ -1,7 +1,6 @@
 import 'package:doctor_app/core/helpers/spacing.dart';
 import 'package:doctor_app/core/theming/styles.dart';
 import 'package:doctor_app/core/widgets/app_text_button.dart';
-import 'package:doctor_app/features/login/data/models/login_request_body.dart';
 import 'package:doctor_app/features/login/logic/cubit/login_cubit.dart';
 import 'package:doctor_app/features/login/ui/widgets/dont_have_account_text.dart';
 import 'package:doctor_app/features/login/ui/widgets/email_and_password.dart';
@@ -41,7 +40,7 @@ class LoginScreen extends StatelessWidget {
                     Align(
                       alignment: AlignmentDirectional.centerEnd,
                       child: Text(
-                        "Forget Password",
+                        "Forget Password ?",
                         style: TextStyles.font13DarkBlueRegular,
                       ),
                     ),
@@ -72,11 +71,6 @@ class LoginScreen extends StatelessWidget {
 void validateAndSubmit(BuildContext context) {
   final form = context.read<LoginCubit>().formKey.currentState;
   if (form!.validate()) {
-    context.read<LoginCubit>().emitLoadingStates(
-          LoginRequestBody(
-            email: context.read<LoginCubit>().emailController.text,
-            password: context.read<LoginCubit>().passwordController.text,
-          ),
-        );
+    context.read<LoginCubit>().emitLoadingStates();
   }
 }
