@@ -1,7 +1,6 @@
 import 'package:doctor_app/core/helpers/extensions.dart';
 import 'package:doctor_app/core/routing/routes.dart';
 import 'package:doctor_app/core/theming/colors.dart';
-import 'package:doctor_app/core/theming/styles.dart';
 import 'package:doctor_app/features/login/logic/cubit/login_cubit.dart';
 import 'package:doctor_app/features/login/logic/cubit/login_state.dart';
 import 'package:flutter/material.dart';
@@ -43,29 +42,38 @@ class LoginBlocListener extends StatelessWidget {
 
 void setupErrorState(BuildContext context, String error) {
   context.pop();
-  showDialog(
-    context: context,
-    builder: (context) => AlertDialog(
-      icon: const Icon(
-        Icons.error,
-        color: Colors.red,
-        size: 32,
-      ),
+  ScaffoldMessenger.of(context).showSnackBar(
+    SnackBar(
+      backgroundColor: Colors.red,
       content: Text(
         error,
-        style: TextStyles.font15DarkBlueMedium,
+        // style: TextStyles.font14BlueSemiBold,
       ),
-      actions: [
-        TextButton(
-          onPressed: () {
-            context.pop();
-          },
-          child: Text(
-            'Got it',
-            style: TextStyles.font14BlueSemiBold,
-          ),
-        ),
-      ],
     ),
   );
+  // showDialog(
+  //   context: context,
+  //   builder: (context) => AlertDialog(
+  //     icon: const Icon(
+  //       Icons.error,
+  //       color: Colors.red,
+  //       size: 32,
+  //     ),
+  //     content: Text(
+  //       error,
+  //       style: TextStyles.font15DarkBlueMedium,
+  //     ),
+  //     actions: [
+  //       TextButton(
+  //         onPressed: () {
+  //           context.pop();
+  //         },
+  //         child: Text(
+  //           'Got it',
+  //           style: TextStyles.font14BlueSemiBold,
+  //         ),
+  //       ),
+  //     ],
+  //   ),
+  // );
 }
