@@ -1,4 +1,5 @@
 import 'package:doctor_app/core/helpers/extensions.dart';
+import 'package:doctor_app/core/routing/routes.dart';
 import 'package:doctor_app/features/signup/logic/sign_up_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -44,10 +45,15 @@ class SignupBlocListener extends StatelessWidget {
   void showSuccessDialog(BuildContext context) {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
-        content: Text("Congratulations, you have signed up successfully!",
-            style: TextStyles.font15DarkBlueMedium),
+        backgroundColor: Colors.green,
+        content: Text(
+          "Congratulations, you have signed up successfully!",
+          style: TextStyles.font15DarkBlueMedium,
+        ),
       ),
     );
+    context.pushNamed(Routes.loginScreen);
+
     // showDialog(
     //   context: context,
     //   builder: (BuildContext context) {
