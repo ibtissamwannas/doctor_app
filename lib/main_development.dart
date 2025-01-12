@@ -13,6 +13,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   setUpGetIt();
   await ScreenUtil.ensureScreenSize();
+  await checkIfLoggedInUser();
   runApp(
     DocApp(
       appRouter: AppRouter(),
