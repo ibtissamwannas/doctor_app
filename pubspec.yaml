@@ -59,6 +59,8 @@ dependencies:
   # for adapting screen and font size.
   flutter_screenutil: ^5.9.0
   firebase_core: ^3.9.0
+  shared_preferences: ^2.3.5
+  flutter_secure_storage: ^9.2.4
 
 dev_dependencies:
   flutter_test:
