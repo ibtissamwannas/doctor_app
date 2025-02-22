@@ -1,4 +1,5 @@
 import 'package:doctor_app/core/helpers/extensions.dart';
+import 'package:doctor_app/core/networking/api_error_model.dart';
 import 'package:doctor_app/core/routing/routes.dart';
 import 'package:doctor_app/core/theming/colors.dart';
 import 'package:doctor_app/features/login/logic/cubit/login_cubit.dart';
@@ -40,13 +41,13 @@ class LoginBlocListener extends StatelessWidget {
   }
 }
 
-void setupErrorState(BuildContext context, String error) {
+void setupErrorState(BuildContext context, ApiErrorModel error) {
   context.pop();
   ScaffoldMessenger.of(context).showSnackBar(
     SnackBar(
       backgroundColor: Colors.red,
       content: Text(
-        error,
+        error.getAllErrorMessages(),
         // style: TextStyles.font14BlueSemiBold,
       ),
     ),
